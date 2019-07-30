@@ -1,16 +1,27 @@
 <?php
+use App\Admin;
+use App\Article;
+use App\Nuser;
+use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+// admins.blade.phpの表示
 Route::get('/', function () {
-    return view('welcome');
+    return view("admins");
+    //admins.blade.phpを読み込む
+});
+
+
+
+
+
+
+// articles.blade.phpの表示　これから編集
+Route::post('/articles', function (Request $request) {
+    //
+});
+
+// nusers.blade.phpの表示　これから編集
+Route::post('/nusers', function (Request $request) {
+    //
 });
