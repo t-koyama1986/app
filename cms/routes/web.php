@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 // admins.blade.phpの表示
 Route::get('/', function () {
-    return view("admins");
-    //admins.blade.phpを読み込む
+    return view("top");
+    //top.blade.phpを読み込む
 });
 
 
@@ -25,3 +25,7 @@ Route::post('/articles', function (Request $request) {
 Route::post('/nusers', function (Request $request) {
     //
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
