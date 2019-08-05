@@ -8,10 +8,25 @@ use Illuminate\Http\Request;
 // admins.blade.phpの表示
 Route::get('/', function () {
     return view("top");
-    //top.blade.phpを読み込む
 });
 
 
+// admins.blade.phpの表示
+Route::get('/', function () {
+    return view("home");
+});
+
+
+Route::get('/admins', 'SampleController@request');
+
+// Route::get('/admins', function () {
+//     return view("admins");
+// });
+
+
+
+Route::get('sample', 'SampleController@add') ;;
+Route::post('sample', 'SampleController@create')->name('sample_create');;
 
 
 

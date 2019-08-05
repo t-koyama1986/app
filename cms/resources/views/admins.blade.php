@@ -1,5 +1,32 @@
 @extends('layouts.app')
 @section('content')
+
+
+<table>
+        <!--<tr>-->
+        <!--    <th>ID</th>-->
+        <!--    <th>カテゴリー</th>-->
+        <!--    <th>サンプル文</th>-->
+        <!--</tr>-->
+
+        <!--    <tr>-->
+        <!--        <th>{{$Sample->id}}</th>-->
+        <!--        <th>{{$Sample->name}}</th>-->
+        <!--        <th>{{$Sample->samplearticle}}</th>-->
+        <!--    </tr>-->
+<br>
+<br>
+        @foreach($Sample as $key => $value)
+        {{$key}}<br>{{$value}}
+        @endforeach
+
+</table
+
+
+
+
+
+
      <!--Bootstrapの定形コード… -->
     <div class="card-body">
         <div class="card-title">
