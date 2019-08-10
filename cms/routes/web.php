@@ -28,7 +28,9 @@ Route::get('/admins', 'SampleController@request');
 Route::get('sample', 'SampleController@add') ;;
 Route::post('sample', 'SampleController@create')->name('sample_create');;
 
-
+Route::get('/sample-list', 'SampleController@list');
+Route::get('/sample-edit/{id}', 'SampleController@edit')->name('sample_edit');;
+Route::post('/sample-edit', 'SampleController@update')->name('sample_editpost');;
 
 
 // articles.blade.phpの表示　これから編集
