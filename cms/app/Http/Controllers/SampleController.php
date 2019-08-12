@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sample;
 
-
 class SampleController extends Controller
 {
+  public function top()
+  {
+        $Sample = Sample::all();
+        $Sample = Sample::orderBy('id', 'DESC')->take(7)->get();
+        return view('top', compact('Sample'));
+  }
+
+
+
     //
     public function add()
     {
@@ -66,6 +74,24 @@ class SampleController extends Controller
         return redirect('/sample-list');
     }
  
+
+
+    public function delete($id)
+    {
+        $Sample = Sample::find($id);
+        return view('sample-delete', ['Sample'=>$Sample ,'id'=>$id]);
+    }
+
+     public function deletepost(Request $request)
+    {
+        $Sample = Sample::find($request->id);
+        $Sample->category = $request->category;
+        $Sample->samplearticle = $request->samplearticle;
+        $Sample->delete();
+        return redirect('/sample-list');
+    }
+
+
  
  
      public function get_user(){

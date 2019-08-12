@@ -4,25 +4,13 @@ use App\Article;
 use App\Nuser;
 use Illuminate\Http\Request;
 
+Route::get('/top', 'SampleController@top');
 
-// admins.blade.phpの表示
-Route::get('/', function () {
-    return view("top");
-});
-
-
-// admins.blade.phpの表示
 Route::get('/', function () {
     return view("home");
 });
 
-
 Route::get('/admins', 'SampleController@request');
-
-// Route::get('/admins', function () {
-//     return view("admins");
-// });
-
 
 
 Route::get('sample', 'SampleController@add') ;;
@@ -32,11 +20,13 @@ Route::get('/sample-list', 'SampleController@list');
 Route::get('/sample-edit/{id}', 'SampleController@edit')->name('sample_edit');;
 Route::post('/sample-edit', 'SampleController@update')->name('sample_editpost');;
 
+Route::get('/sample-delete/{id}', 'SampleController@delete')->name('sample_delete');;
+Route::post('/sample-delete', 'SampleController@deletepost')->name('sample_deletepost');;
 
-// articles.blade.phpの表示　これから編集
-Route::post('/articles', function (Request $request) {
-    //
-});
+
+
+Route::get('/article', 'ArticleController@home') ;;
+Route::post('/article', 'ArticleController@create')->name('article_create');;
 
 // nusers.blade.phpの表示　これから編集
 Route::post('/nusers', function (Request $request) {

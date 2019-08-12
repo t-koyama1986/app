@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<table>
+<table border="1">
         <tr>
             <th>ID</th>
             <th>カテゴリー</th>
@@ -15,12 +15,13 @@
             <th>{{$Sample->category}}</th>
             <th>{{$Sample->samplearticle}}</th>
             <th><a href="{{route('sample_edit', ['id'=>$Sample->id])}}">編集</a></th>
+            <th><a href="{{route('sample_delete', ['id'=>$Sample->id])}}">削除</a></th>
         </tr>
         @endforeach
 
 
             <!--<th><a href="{{ url('/sample-edit') }}">編集</a></th>-->
-<!--routeでやるときは、web.phpの->name('sample_edit')　がついたものが必要-->
+            <!--routeでやるときは、web.phpの->name('sample_edit')　がついたものが必要-->
 
 
 

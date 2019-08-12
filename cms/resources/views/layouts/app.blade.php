@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('', 'こどもの連絡帳 作成支援アプリ') }}</title>
+    <title>{{ config('', 'テストアプリ') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('', 'こどもの連絡帳　作成支援アプリ') }}
+                        {{ config('', 'テストアプリ') }}
                     </a>
                 </div>
 
