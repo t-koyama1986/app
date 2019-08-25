@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'asset_url' => env('ASSET_URL', null),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -95,6 +95,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Faker Locale
+    |--------------------------------------------------------------------------
+    |
+    | This locale will be used by the Faker PHP library when generating fake
+    | data for your database seeds. For example, this will be used to get
+    | localized telephone numbers, street address information and more.
+    |
+    */
+    'faker_locale' => 'en_US',
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -103,9 +116,7 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
-
     'key' => env('APP_KEY'),
-
     'cipher' => 'AES-256-CBC',
 
     /*
@@ -176,7 +187,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        
     ],
 
     /*

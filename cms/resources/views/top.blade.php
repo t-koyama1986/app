@@ -14,27 +14,14 @@
 </form>
 
 
-<a href="{{ url('/sample') }}">サンプル作成用画面へ</a></th>
+<!--==================以下、ajax用-->
+<br>
+    <button id="ajax">ajax</button>
+<br>
+    <div class="result"></div>
+<br>
+<!--==================以上、ajax用-->
 
-<table border="1">
-        <tr>
-            <font size="50px">フォントサイズ</font>
-            <th>ID</th>
-            <th>カテゴリー</th>
-            <th>サンプル文</th>
-            <th>日付</th>
-        </tr>
-        @foreach($Sample as $Sample)
-        <tr>
-            <th>{{$Sample->id}}</th>
-            <th>{{$Sample->category}}</th>
-            <th>{{$Sample->samplearticle}}</th>
-            <th>{{$Sample->created_at}}</th>
-            <th><a href="{{route('sample_edit', ['id'=>$Sample->id])}}">編集</a></th>
-            <th><a href="{{route('sample_delete', ['id'=>$Sample->id])}}">削除</a></th>
-        </tr>
-        @endforeach
-</table>
 
 
 @endsection

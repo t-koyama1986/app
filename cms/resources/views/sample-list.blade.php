@@ -18,13 +18,8 @@
             <th><a href="{{route('sample_delete', ['id'=>$Sample->id])}}">削除</a></th>
         </tr>
         @endforeach
-
-
-            <!--<th><a href="{{ url('/sample-edit') }}">編集</a></th>-->
-            <!--routeでやるときは、web.phpの->name('sample_edit')　がついたものが必要-->
-
-
-
 </table>
+
+<a href="{{ url('/sample') }}">サンプル作成topに戻る</a></th>
 
 @endsection

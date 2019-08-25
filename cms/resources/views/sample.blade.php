@@ -10,6 +10,8 @@
     </form>
 
 
+
+
         <a href="{{ url('/sample-list') }}">編集</a>
 
 

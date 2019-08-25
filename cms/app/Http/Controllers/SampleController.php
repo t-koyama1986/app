@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sample;
+use App\Http\Requests;
+
 
 class SampleController extends Controller
 {
@@ -29,21 +31,23 @@ class SampleController extends Controller
         $Sample->category = $request->category;
         $Sample->samplearticle = $request->samplearticle;
         $Sample->save();
-        return redirect('/sample');
+
+        return redirect()->route('sample_edit', ['id' => $Sample->id]);
     }
 
-    public function request()
+
+    public function sample()
     {
-        $Sample = Sample::find(1);
-        return view('admins', compact('Sample'));
+        $Sample = Sample::find(2);
+        return view('article', compact('Sample'));
     }
-
 
   public function list()
   {
         $Sample = Sample::all();
         return view('sample-list', compact('Sample'));
   }
+
 
 
     public function edit($id)
@@ -103,7 +107,18 @@ class SampleController extends Controller
             $user = User::find(1);  //Userのテーブルから、IDの1番をfindしなさい、という命令
             return view('users.edit',['user'=>$user]);  //userの中のshowのページを表示してね、という命令
         }
+
+
+
+        public function ajax()
+    {
+        return view('ajax');
+    }
+    
+    
 }
+
+
 
 
 
