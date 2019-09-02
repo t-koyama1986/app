@@ -5,7 +5,7 @@ use App\Nuser;
 use Illuminate\Http\Request;
 
 
-Route::get('/top', 'SampleController@top');
+Route::get('/', 'SampleController@top');
 
 Route::get('/home', function () {
     return view("home");
@@ -25,8 +25,6 @@ Route::post('/sample-delete', 'SampleController@deletepost')->name('sample_delet
 
 
 
-Route::get('/article', 'ArticleController@home') ;;
-Route::post('/article', 'ArticleController@create')->name('article_create');;
 
 Route::get('/article-list', 'ArticleController@list') ;;
 Route::get('/article-delete/{id}', 'ArticleController@delete')->name('article_delete');;
@@ -54,13 +52,18 @@ Route::get('/ajax', 'SampleController@ajax');
 // ================================ajax関連終了
 
 // ================================マルチログイン関連
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Auth::routes();
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function(){
     Route::get('edit', 'UserController@edit')->name('user.edit');
     Route::post('update', 'UserController@update')->name('user.update');
+    Route::get('/article', 'ArticleController@home') ;;
+    Route::post('/article', 'ArticleController@create')->name('article_create');;
+
+    
+    
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {

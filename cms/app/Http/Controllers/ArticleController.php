@@ -12,10 +12,12 @@ class ArticleController extends Controller
   public function home()
   {
         $Article = Article::all();
-        // $Article = Article::where('userid', Auth::id())->get();
+
+        $Article = Article::where('userid', Auth::id())->get();
         // $Article = Article::where('userid', '2')->get();
+
         // ここで、ユーザーIDの記事だけ表示させる処理を作る
-        $Article = Article::orderBy('id', 'DESC')->take(7)->get();
+        // $Article = Article::orderBy('id', 'DESC')->take(7)->get();
 // 入れるとしたらここに入れる
         $Sample = Sample::all();
         // var_dump($Sample);

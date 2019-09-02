@@ -16,7 +16,6 @@ class SampleapiController extends Controller
     public function index()
     {
         $Sample = Sample::all();
-        $Sample = Sample::where('category', 'テスト')->get();
         return $Sample;
     }
 
@@ -50,8 +49,28 @@ class SampleapiController extends Controller
     public function show($category)
     {
         $Sample = Sample::where('category', $category)->get();
-        return $Sample;
+        $count = count($Sample);
+        $num = rand(0, $count-1);
+        $array = $Sample[$num];
+        // var_dump($array);
+
+
+        return response()->json([$array]);
     }
+
+
+        // $Sample = Sample::where('category', $category)->where('id', rand(1,9))->value('category');
+
+        // $Sample = Sample::where('category', $category)->where('id', rand(1,9))->value('id');
+        // $Sample = Sample::where('category', $category)->where('id', rand(1,9))->value('category');
+
+        // $Sample = Sample::where('category', 'テスト')->where('id', rand(1,4))->value('id');
+        // $Sample = Sample::where('category', 'test')->where('id', rand(5,9))->value('category');
+
+
+        // ここで、ランダムに該当するまでループを回す必要がある。今のやり方だ恐らく空データにならないのが問題。
+        // 解決策が思いつかないが、categoryのlengthが0の時はループ、といった感じになるのか・・・？do whileでよいならこれかもだが不明。。
+
 
     /**
      * Show the form for editing the specified resource.
