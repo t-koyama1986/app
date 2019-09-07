@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">管理者ログイン</div>
+                <!--<div class="card-header">管理者ログイン</div>-->
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -33,15 +33,15 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <!--<div class="form-check">-->
+                                <!--    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>-->
 
 
 
-                                    <label class="form-check-label" for="remember">
-                                        忘れたら
-                                    </label>
-                                </div>
+                                    <!--<label class="form-check-label" for="remember">-->
+                                    <!--    忘れたら-->
+                                    <!--</label>-->
+                                <!--</div>-->
                             </div>
                         </div>
 
@@ -51,11 +51,12 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                <!--@if (Route::has('password.request'))-->
+                                <!--    <a class="btn btn-link" href="{{ route('password.request') }}">-->
+                                <!--        {{ __('Forgot Your Password?') }}-->
+                                <!--    </a>-->
+                                <!--@endif-->
+                                <br><br>不明時やパスワード忘れ時の問い合わせ先<br>4105098　アットマーク　gmail.com
                             </div>
                         </div>
                     </form>

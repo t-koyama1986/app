@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sample;
+use App\User;
 use App\Http\Requests;
 
 
@@ -11,9 +12,10 @@ class SampleController extends Controller
 {
   public function top()
   {
-        $Sample = Sample::all();
-        $Sample = Sample::orderBy('id', 'DESC')->take(7)->get();
-        return view('top', compact('Sample'));
+        // $Sample = Sample::all();
+        // $Sample = Sample::orderBy('id', 'DESC')->take(7)->get();
+        // return view('top', compact('Sample'));
+        return view('top');
   }
 
 
@@ -107,6 +109,59 @@ class SampleController extends Controller
             $user = User::find(1);  //Userのテーブルから、IDの1番をfindしなさい、という命令
             return view('users.edit',['user'=>$user]);  //userの中のshowのページを表示してね、という命令
         }
+
+
+
+  public function home()
+  {
+        $Article = Article::all();
+        $Article = Article::where('userid', Auth::id())->get();
+
+        // $Article = Article::orderBy('id', 'DESC')->take(7)->get();
+        $Sample = Sample::all();
+
+        $UID = Auth::id();
+
+        return view('/admin/home', compact('Article','Sample','UID'));
+  }
+
+
+
+
+    public function adminlist()
+    {
+        $User = User::all();
+        return view('admin-list', compact('User'));
+    }
+
+    public function adminedit($id)
+    {
+        $User = User::find($id);
+        return view('admin-edit', ['User'=>$User ,'id'=>$id]);
+    }
+     public function adminupdate(Request $request)
+    {
+        $User = User::find($request->id);
+        $User->name = $request->name;
+        $User->email = $request->email;
+        $User->update();
+        
+        return redirect('admin-list');
+    }
+    public function admindelete($id)
+    {
+        $User = User::find($id);
+        return view('admin-delete', ['User'=>$User ,'id'=>$id]);
+    }
+     public function admindeletepost(Request $request)
+    {
+        $User = User::find($request->id);
+        $User->name = $request->name;
+        $User->email = $request->email;
+        $User->delete();
+        return redirect('admin-list');
+    }
+
 
 
 

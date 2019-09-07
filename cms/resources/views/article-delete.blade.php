@@ -11,6 +11,6 @@
     </form>
 
 <br>
-<a href="{{ url('/article-list') }}">変更せずに戻る</a></th>
+<a href="{{ url('/user/article-list') }}">変更せずに戻る</a></th>
 
 @endsection

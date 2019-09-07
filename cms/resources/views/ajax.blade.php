@@ -3,9 +3,9 @@ ajax用のテストページ
   <div class="jumbotron">
    <fieldset>
         カテゴリー：<select id="select" name="example">
-            <option value="テスト">テスト</option>
-            <option value="test">test</option>
-            <option value="test5">test5</option>
+            <option value="日常">日常</option>
+            <option value="不機嫌">不機嫌</option>
+            <option value="体調不良">体調不良</option>
         </select>
         <br>
             <button id="ajax">候補を表示</button>

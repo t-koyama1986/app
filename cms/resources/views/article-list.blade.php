@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
-<table border="1">
+<div class=container>
+<table class="table">
         <tr>
-            <th>記事ID</th>
-            <th>ユーザーID</th>
+            <!--<th>記事ID</th>-->
+            <!--<th>ユーザーID</th>-->
             <th>カテゴリー</th>
             <th>文章</th>
             <th>日付</th>
@@ -12,8 +13,8 @@
 
         @foreach($Article as $Article)
         <tr>
-            <th>{{$Article->id}}</th>
-            <th>{{$Article->userid}}</th>
+            <!--<th>{{$Article->id}}</th>-->
+            <!--<th>{{$Article->userid}}</th>-->
             <th>{{$Article->category}}</th>
             <th>{{$Article->article}}</th>
             <th>{{$Article->created_at}}</th>
@@ -23,6 +24,6 @@
         @endforeach
 </table>
 
-<a href="{{ url('/article') }}">topページに戻る</a></th>
+<a href="{{ url('/user/article') }}">topページに戻る</a></th>
 
 @endsection

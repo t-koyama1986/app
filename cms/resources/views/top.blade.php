@@ -1,27 +1,27 @@
 @extends('layouts.app')
 @section('content')
-<form method="post" action="insert.php">
+<div class=container>
+    <div class=abc>※ このままでも使用可能ですが、履歴を残したい場合は、ログインして使用してください。</div>
+    <br>
   <div class="jumbotron">
    <fieldset>
-    <legend>※ このままでも使用可能ですが、履歴を残したい場合は、ログインして使用してください。</legend>
-     <label>カテゴリー：<input type="text" name="category1"></label>
-     <input id=random1 type="button" value="候補を表示"> <br><br>
+        カテゴリー：<select id="select" name="example">
+            <option value="日常">日常</option>
+            <option value="不機嫌">不機嫌</option>
+            <option value="体調不良">体調不良</option>
+        </select>
+        <button id="ajax" type="button" class="btn btn-primary">候補を表示</button><br><br>
 
-     <label><textArea id=category1 name="category1" rows="5" cols="60"></textArea></label>
-     <!--<input type="submit" value="送信">-->
+   <fieldset>
+         <label><textArea id=result name="article" rows="5" cols="60"></textArea></label>
+    </fieldset>
+
+
+        <br>
+        <br>
     </fieldset>
   </div>
-</form>
-
-
-<!--==================以下、ajax用-->
-<br>
-    <button id="ajax">ajax</button>
-<br>
-    <div class="result"></div>
-<br>
-<!--==================以上、ajax用-->
-
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{secure_asset('/js/ajax.js') }}"></script>
 @endsection
+

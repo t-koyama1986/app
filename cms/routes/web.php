@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'SampleController@top');
 
-Route::get('/home', function () {
-    return view("home");
-});
 
 
 
@@ -25,14 +22,6 @@ Route::post('/sample-delete', 'SampleController@deletepost')->name('sample_delet
 
 
 
-
-Route::get('/article-list', 'ArticleController@list') ;;
-Route::get('/article-delete/{id}', 'ArticleController@delete')->name('article_delete');;
-Route::post('/article-delete', 'ArticleController@deletepost')->name('article_deletepost');;
-
-
-Route::get('/article-edit/{id}', 'ArticleController@edit')->name('article_edit');;
-Route::post('/article-edit', 'ArticleController@update')->name('article_editpost');;
 
 // nusers.blade.phpの表示　これから編集
 Route::post('/nusers', function (Request $request) {
@@ -57,15 +46,23 @@ Route::get('/ajax', 'SampleController@ajax');
 // });
 Auth::routes();
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function(){
-    Route::get('edit', 'UserController@edit')->name('user.edit');
-    Route::post('update', 'UserController@update')->name('user.update');
-    Route::get('/article', 'ArticleController@home') ;;
-    Route::post('/article', 'ArticleController@create')->name('article_create');;
+    Route::get('/edit', 'UserController@edit')->name('user.edit');
+    Route::post('/update', 'UserController@update')->name('user.update');
+    Route::get('/article', 'ArticleController@home');
+    Route::post('/article', 'ArticleController@create')->name('article_create');
 
+    Route::get('/article-list', 'ArticleController@list');
+    Route::get('/article-delete/{id}', 'ArticleController@delete')->name('article_delete');
+    Route::post('/article-delete', 'ArticleController@deletepost')->name('article_deletepost');
     
+    
+    Route::get('/article-edit/{id}', 'ArticleController@edit')->name('article_edit');
+    Route::post('/article-edit', 'ArticleController@update')->name('article_editpost');
+
+    Route::get('/home', 'HomeController@index')->name('home');    
     
 });
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {
     Route::get('/home', function () {
         return view('admin.home');
@@ -81,5 +78,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
     Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+
+    Route::get('admin-list', 'SampleController@adminlist');
+    Route::get('admin-edit/{id}', 'SampleController@adminedit')->name('admin_edit');
+    Route::post('admin-edit', 'SampleController@adminupdate')->name('admin_editpost');
+    Route::get('admin-delete/{id}', 'SampleController@admindelete')->name('admin_delete');
+    Route::post('admin-delete', 'SampleController@admindeletepost')->name('admin_deletepost');
+
+    
 });
 // ================================
